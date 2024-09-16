@@ -26,3 +26,10 @@ class TodoGetPost(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def put(self, request, pk):
+        todo = get_object_or_404(Todo, id=pk)
+        todo.complete = True
+        todo.save()
+        serializer = TodoDetailSerializer(todo)
+        return Response(status=status.HTTP_200_OK)
+
