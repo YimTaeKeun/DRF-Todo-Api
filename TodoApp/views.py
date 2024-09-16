@@ -33,6 +33,11 @@ class TodoGetPost(APIView):
         serializer = TodoDetailSerializer(todo)
         return Response(status=status.HTTP_200_OK)
 
+    def delete(self, request, pk):
+        todo = get_object_or_404(Todo, id=pk)
+        todo.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class TodoAllGet(APIView):
     def get(self, request):
         todo = Todo.objects.all()
