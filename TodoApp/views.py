@@ -33,3 +33,10 @@ class TodoGetPost(APIView):
         serializer = TodoDetailSerializer(todo)
         return Response(status=status.HTTP_200_OK)
 
+class TodoAllGet(APIView):
+    def get(self, request):
+        todo = Todo.objects.all()
+        serializer = TodoListSerializer(todo, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+

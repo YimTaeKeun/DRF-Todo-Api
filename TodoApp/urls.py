@@ -6,4 +6,5 @@ urlpatterns = [
     path('detail/<int:pk>/', views.TodoGetPost.as_view(), name='todo_detail'),
     path('create/', views.TodoGetPost.as_view(), name='todo_create'),
     path('done/<int:pk>/', views.TodoGetPost.as_view(), name='todo_done'),
+    path('all/', views.TodoAllGet.as_view(), name='todo_all'),
 ]
