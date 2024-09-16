@@ -5,9 +5,9 @@ from .models import Todo
 class TodoListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
-        fields = ('title', 'important', 'complete')
+        fields = ('id', 'title', 'important', 'complete')
 
-# todo를 만들거나, 상세정보를 가져올 때 사용하는 시리얼라이저 입니다.
+# todo의 상세정보를 가져올 때 사용하는 시리얼라이저 입니다.
 class TodoDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
